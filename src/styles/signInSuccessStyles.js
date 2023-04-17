@@ -27,7 +27,7 @@ export default signInSuccessStyles = StyleSheet.create({
         marginTop: 10,
         marginLeft: 70
     },
-    profilePictureContainer: {
+    emptyProfilePictureContainer: {
         marginTop: 15,
         height: 150,
         width: 150,
@@ -38,6 +38,25 @@ export default signInSuccessStyles = StyleSheet.create({
         elevation: 3,
         alignSelf: 'flex-start',
         justifyContent: 'center',
+    },
+    emptyProfilePicture: {
+        left: -118,
+        top: 10
+    },
+    profilePictureContainer: {
+        marginTop: 15,
+        height: 150,
+        width: 150,
+        borderRadius: 80,
+        borderWidth: 3,
+        borderColor: 'white',
+        elevation: 3,
+        alignSelf: 'flex-start',
+        justifyContent: 'center',
+    },
+    profilePicture: {
+        height: '100%',
+        borderRadius: 80,
     },
     infoText: {
         paddingVertical: 8,

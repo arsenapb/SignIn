@@ -29,7 +29,7 @@ export default class App extends Component {
           <Stack.Screen 
             name={screenNames.CameraScreen}
             component={CameraView}
-            // options={{ header: () => null }}
+            options={{ header: () => null }}
           />
         </Stack.Navigator>
       </NavigationContainer>

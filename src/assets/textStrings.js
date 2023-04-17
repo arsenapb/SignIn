@@ -11,4 +11,7 @@ export default textStrings = {
     emptyFieldText: 'Please enter an email and a password',
     greetingText: 'Hello, ',
     greetingDescriptionText: 'You have successfully signed up!\n\nThe preview below is what the community will see!',
+    acceptText: 'Accept',
+    retakeText: 'Retake',
+    acceptPhotoText: 'Choose this photo for your profile picture?',
 };

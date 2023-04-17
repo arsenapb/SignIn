@@ -11,7 +11,7 @@ import SVGImageAssets from '../assets/SVGImageAssets';
 export class SignInSuccess extends Component {
 
     render() {  
-      const { firstName, email, website } = this.props;
+      const { profilePicture, firstName, email, website } = this.props;
 
       return (
         <LinearGradient
@@ -35,12 +35,20 @@ export class SignInSuccess extends Component {
             </View>
 
             <View style={signInSuccessStyles.userProfileContainer}>
-              <View style={signInSuccessStyles.profilePictureContainer}>
-                <SVGImageAssets.PersonIcon 
-                  style={{left:-118, top: 10}}
-                  height={120}
-                />
-              </View>
+              {profilePicture
+                ? <View style={signInSuccessStyles.profilePictureContainer}>
+                    <Image 
+                      source={{ uri: profilePicture.node.image.uri }}
+                      style={signInSuccessStyles.profilePicture}
+                    />
+                  </View>
+                : <View style={signInSuccessStyles.emptyProfilePictureContainer}>
+                    <SVGImageAssets.PersonIcon 
+                      style={signInSuccessStyles.emptyProfilePicture}
+                      height={120}
+                    />
+                  </View>
+              }
               <View style={signInSuccessStyles.userInfoContainer}>
                 <Text style={signInSuccessStyles.infoText}>
                   {firstName}
@@ -79,6 +87,7 @@ export class SignInSuccess extends Component {
   }
 
   export const mapStateToProps = state => ({
+    profilePicture: state.signInReducer.profilePicture,
     firstName: state.signInReducer.firstName,
     email: state.signInReducer.email,
     website: state.signInReducer.website,

@@ -5,7 +5,7 @@ export default signInStyles = StyleSheet.create({
         height: '100%',
     },
     contentContainer: {
-        height: 750,
+        height: 780,
         margin: 40,
         padding: 34,
         borderRadius: 30,
@@ -82,7 +82,7 @@ export default signInStyles = StyleSheet.create({
         color: 'red',
         letterSpacing: 1,
     },
-    profilePictureContainer: {
+    emptyProfilePictureContainer: {
         marginTop: 15,
         height: 150,
         width: 150,
@@ -94,13 +94,32 @@ export default signInStyles = StyleSheet.create({
         alignSelf:'center',
         justifyContent: 'center',
     },
+    emptyProfilePicture: {
+        position: 'absolute', 
+        left: -118, 
+        top: 22
+    },
+    profilePictureContainer: {
+        marginTop: 15,
+        height: 150,
+        width: 150,
+        borderRadius: 80,
+        borderWidth: 3,
+        borderColor: 'white',
+        elevation: 3,
+        alignSelf:'center',
+        justifyContent: 'center',
+    },
+    profilePicture: {
+        height: '100%',
+        borderRadius: 80,
+    },
     addPictureText: {
-        marginTop: 35,
+        marginTop: 55,
         textAlign: 'center',
         fontFamily: 'Lato-Bold',
         fontSize: 11,
         color: 'gray',
-        textTransform: 'uppercase',
         letterSpacing: .6,
     },
 });

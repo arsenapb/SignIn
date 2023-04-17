@@ -8,6 +8,7 @@ import {
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
   Keyboard,
+  Image,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -76,22 +77,29 @@ export class SignIn extends Component {
               </Text>
             </View>
 
-            <TouchableOpacity 
-              style={signInStyles.profilePictureContainer}
-              onPress={() => {
-                this.props.navigation.navigate(screenNames.CameraScreen);
-              }
-              }
-            >
-              <SVGImageAssets.PersonIcon 
-                style={{position: 'absolute', left: -118, top: 22}}
-                height={120}
-              />
-              <Text style={signInStyles.addPictureText}>
-                {textStrings.addPictureText}
-              </Text>
-            </TouchableOpacity>    
-
+            {this.props.profilePicture
+              ? <View style={signInStyles.profilePictureContainer}>
+                  <Image 
+                    source={{ uri: this.props.profilePicture.node.image.uri }}
+                    style={signInStyles.profilePicture}
+                  />
+                </View>
+              : <TouchableOpacity 
+                  style={signInStyles.emptyProfilePictureContainer}
+                  onPress={() =>
+                    this.props.navigation.navigate(screenNames.CameraScreen)
+                  }
+                >
+                  <SVGImageAssets.PersonIcon 
+                    style={signInStyles.emptyProfilePicture}
+                    height={120}
+                  />
+                  <Text style={signInStyles.addPictureText}>
+                    {textStrings.addPictureText}
+                  </Text>
+                </TouchableOpacity>
+            }
+            
             <View style={signInStyles.inputContainer}>
               <Text style={signInStyles.descriptionText}>
                 {textStrings.profileCreationDescriptionText}
@@ -166,6 +174,7 @@ export class SignIn extends Component {
 }
 
 export const mapStateToProps = state => ({
+  profilePicture: state.signInReducer.profilePicture,
   firstName: state.signInReducer.firstName,
   email: state.signInReducer.email,
   password: state.signInReducer.password,
